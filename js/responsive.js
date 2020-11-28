@@ -35,7 +35,7 @@ function getMenuLinks () {
 function appendSmallScreenMenu () {
   const smallMenu = document.createElement('div')
   smallMenu.innerHTML = `
-        <a href="Index.html">
+        <a href="index.html">
           <img id="logoType" src="img/website/Logga.png" alt="Logotyp">
         </a>
         <div class="menuItem" id="menuIcon">
