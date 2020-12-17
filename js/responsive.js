@@ -29,11 +29,11 @@ function isSwedishLanguage () {
 }
 
 function translateToSwedish () {
-  const englishElements = document.getElementsByClassName('swedish')
-  toggleAllDisplayNone(englishElements)
-
-  const swedishElements = document.getElementsByClassName('english')
+  const swedishElements = document.getElementsByClassName('swedish')
   toggleAllDisplayNone(swedishElements)
+
+  const englishElements = document.getElementsByClassName('english')
+  toggleAllDisplayNone(englishElements)
 }
 
 /**
