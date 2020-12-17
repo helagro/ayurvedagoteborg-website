@@ -1,8 +1,8 @@
 'use strict'
 
 ;(() => {
-  if (!isSwedishLanguage()) {
-    translateToEnglish()
+  if (isSwedishLanguage()) {
+    translateToSwedish()
   }
 
   const width = getScreenWidth()
@@ -28,11 +28,11 @@ function isSwedishLanguage () {
   return language === 'sv'
 }
 
-function translateToEnglish () {
-  const englishElements = document.getElementsByClassName('english')
+function translateToSwedish () {
+  const englishElements = document.getElementsByClassName('swedish')
   toggleAllDisplayNone(englishElements)
 
-  const swedishElements = document.getElementsByClassName('swedish')
+  const swedishElements = document.getElementsByClassName('english')
   toggleAllDisplayNone(swedishElements)
 }
 
