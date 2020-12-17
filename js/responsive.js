@@ -1,9 +1,10 @@
 'use strict'
 
-/**
- * Runs functions to redesign DOM on small screens
- */
 ;(() => {
+  if (!isSwedishLanguage()) {
+    translateToEnglish()
+  }
+
   const width = getScreenWidth()
   if (width < 1200) {
     const menuLinks = getMenuLinks()
@@ -18,6 +19,31 @@
     }
   }
 })()
+
+function isSwedishLanguage () {
+  const language = (
+    navigator.language || navigator.userLanguage
+  ).substring(0, 2)
+  
+  return language === 'sv'
+}
+
+function translateToEnglish () {
+  const englishParagraphs = document.getElementsByClassName('english')
+  toggleAllDisplayNone(englishParagraphs)
+
+  const swedishParagraphs = document.getElementsByClassName('swedish')
+  toggleAllDisplayNone(swedishParagraphs)
+}
+
+/**
+ * @param {HTMLCollectionOf<Element>} pList 
+ */
+function toggleAllDisplayNone (pList) {
+  for (let i = 0; i < pList.length; i++) {
+    pList[i].classList.toggle('displayNone')
+  }
+}
 
 function getScreenWidth () {
   return window.innerWidth ||

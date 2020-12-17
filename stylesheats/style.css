@@ -63,6 +63,10 @@ main {
     color: rgb(0, 30, 120);
 }
 
+.displayNone {
+    display: none;
+}
+
 #darkFilter{
     left: 0;
     top: 0;
