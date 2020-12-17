@@ -29,19 +29,19 @@ function isSwedishLanguage () {
 }
 
 function translateToEnglish () {
-  const englishParagraphs = document.getElementsByClassName('english')
-  toggleAllDisplayNone(englishParagraphs)
+  const englishElements = document.getElementsByClassName('english')
+  toggleAllDisplayNone(englishElements)
 
-  const swedishParagraphs = document.getElementsByClassName('swedish')
-  toggleAllDisplayNone(swedishParagraphs)
+  const swedishElements = document.getElementsByClassName('swedish')
+  toggleAllDisplayNone(swedishElements)
 }
 
 /**
- * @param {HTMLCollectionOf<Element>} pList 
+ * @param {HTMLCollectionOf<Element>} elements 
  */
-function toggleAllDisplayNone (pList) {
-  for (let i = 0; i < pList.length; i++) {
-    pList[i].classList.toggle('displayNone')
+function toggleAllDisplayNone (elements) {
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle('displayNone')
   }
 }
 
