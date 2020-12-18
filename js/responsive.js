@@ -1,9 +1,7 @@
 'use strict'
 
 ;(() => {
-  if (isSwedishLanguage()) {
-    translateToSwedish()
-  }
+  isSwedishLanguage() && translateToSwedish()
 
   const width = getScreenWidth()
   if (width < 1200) {
