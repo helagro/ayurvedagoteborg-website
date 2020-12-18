@@ -1,9 +1,9 @@
 'use strict'
-
 ;(() => {
   isSwedishLanguage() && translateToSwedish()
 
   const width = getScreenWidth()
+  
   if (width < 1200) {
     const menuLinks = getMenuLinks()
     appendSmallScreenMenu()
@@ -18,45 +18,51 @@
   }
 })()
 
-function isSwedishLanguage () {
+function isSwedishLanguage() {
   const language = (
     navigator.language || navigator.userLanguage
   ).substring(0, 2)
-  
+
   return language === 'sv'
 }
 
-function translateToSwedish () {
-  const swedishElements = document.getElementsByClassName('swedish')
+function translateToSwedish() {
+  const swedishElements = document.getElementsByClassName(
+    'swedish'
+  )
   toggleAllDisplayNone(swedishElements)
 
-  const englishElements = document.getElementsByClassName('english')
+  const englishElements = document.getElementsByClassName(
+    'english'
+  )
   toggleAllDisplayNone(englishElements)
 }
 
 /**
- * @param {HTMLCollectionOf<Element>} elements 
+ * @param {HTMLCollectionOf<Element>} elements
  */
-function toggleAllDisplayNone (elements) {
+function toggleAllDisplayNone(elements) {
   for (let i = 0; i < elements.length; i++) {
     elements[i].classList.toggle('displayNone')
   }
 }
 
-function getScreenWidth () {
-  return window.innerWidth ||
+function getScreenWidth() {
+  return (
+    window.innerWidth ||
     document.documentElement.clientWidth ||
     document.body.clientWidth
+  )
 }
 
 /**
  * @returns nodelist with link elements for menu
  */
-function getMenuLinks () {
+function getMenuLinks() {
   return document.querySelectorAll('.menuItem')
 }
 
-function appendSmallScreenMenu () {
+function appendSmallScreenMenu() {
   const smallMenu = document.createElement('div')
   smallMenu.innerHTML = `
         <a href="index.html">
@@ -74,16 +80,14 @@ function appendSmallScreenMenu () {
   main.insertBefore(smallMenu, main.firstChild)
 }
 
-function removeBigLogo () {
+function removeBigLogo() {
   const headerDiv = document.getElementById('headerDiv')
-  headerDiv
-    .removeChild(headerDiv.firstElementChild)
+  headerDiv.removeChild(headerDiv.firstElementChild)
 }
 
-function removeBigMenu () {
+function removeBigMenu() {
   const mainSection = document.getElementById('mainSection')
-  mainSection
-    .removeChild(mainSection.firstElementChild)
+  mainSection.removeChild(mainSection.firstElementChild)
 }
 
 /**
@@ -91,7 +95,7 @@ function removeBigMenu () {
  * on click
  * @param menuLinks nodelist with link elements for menu
  */
-function makeMenuIconResponsive (menuLinks) {
+function makeMenuIconResponsive(menuLinks) {
   const menuIcon = document.getElementById('menuIcon')
   const main = document.getElementById('main')
 
@@ -126,11 +130,11 @@ function makeMenuIconResponsive (menuLinks) {
  * Opens menu and displays links
  * @param menuLinks nodelist with link elements for menu
  */
-function openSmallScreenMenu (menuLinks) {
+function openSmallScreenMenu(menuLinks) {
   const openMenu = document.createElement('div')
   openMenu.classList.add('openMenu')
 
-  menuLinks.forEach(menuLink => {
+  menuLinks.forEach((menuLink) => {
     const pLink = document.createElement('p')
     pLink.classList.add('menuLink')
     pLink.appendChild(menuLink)
@@ -141,61 +145,65 @@ function openSmallScreenMenu (menuLinks) {
   menuIcon.appendChild(openMenu)
 }
 
-//adds a transparent, dark div over the content 
-function addFilter(){
-  document.querySelector('.smallMenu').style.borderBottom = '0px'
-  document.getElementById('menuIcon').style.marginRight = '0px'
+//adds a transparent, dark div over the content
+function addFilter() {
+  document.querySelector('.smallMenu').style.borderBottom =
+    '0px'
+  document.getElementById('menuIcon').style.marginRight =
+    '0px'
 
-  let filter = document.createElement('div');
-  filter.id = "darkFilter";
-  document.getElementById("mainSection").appendChild(filter);
+  let filter = document.createElement('div')
+  filter.id = 'darkFilter'
+  document.getElementById('mainSection').appendChild(filter)
 }
 
 //removes it
-function removeFilter(){
-  document.querySelector('.smallMenu').style.borderBottom = '2px solid gray'
-  document.getElementById('menuIcon').style.marginRight = '10%'
-  document.getElementById("mainSection").removeChild(document.getElementById("darkFilter"));
+function removeFilter() {
+  document.querySelector('.smallMenu').style.borderBottom =
+    '2px solid gray'
+  document.getElementById('menuIcon').style.marginRight =
+    '10%'
+  document
+    .getElementById('mainSection')
+    .removeChild(document.getElementById('darkFilter'))
 }
 
-
-function closeSmallScreenMenu () {
+function closeSmallScreenMenu() {
   const menuIcon = document.getElementById('menuIcon')
   menuIcon.removeChild(menuIcon.lastChild)
 }
 
-
-function calendarExists () {
+function calendarExists() {
   return document.getElementById('calendar')
 }
 
-function redesignCalendar () {
-  const calendarBody = document
-    .getElementById('calendar').firstElementChild
+function redesignCalendar() {
+  const calendarBody = document.getElementById('calendar')
+    .firstElementChild
 
-  const body = document
-  .getElementsByTagName('body')[0]
+  const body = document.getElementsByTagName('body')[0]
 
-  const tableHeadings = 
-    calendarBody.children[0].children
+  const tableHeadings = calendarBody.children[0].children
 
-  const style = document.createElement("STYLE")  
-  
+  const style = document.createElement('STYLE')
+
   style.innerHTML = getStringifiedSmallScreenTableStyle()
-  
+
   // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
   for (let i = 0; i < tableHeadings.length; i++) {
     style.innerHTML += `
-      td:nth-of-type(${i + 1}):before { content: "${tableHeadings[i].innerHTML}: "; }
+      td:nth-of-type(${i + 1}):before { content: "${
+      tableHeadings[i].innerHTML
+    }: "; }
     `
   }
 
   body.appendChild(style)
 }
 
-// style for small screens, inspired by: 
+// style for small screens, inspired by:
 // https://css-tricks.com/responsive-data-tables/
-function getStringifiedSmallScreenTableStyle () {
+function getStringifiedSmallScreenTableStyle() {
   return `
     @media only screen and (max-width: 1024px)  {
     
