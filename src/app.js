@@ -1,6 +1,6 @@
 'use strict'
 ;(() => {
-  isSwedishLanguage() && translateToSwedish()
+  isSwedishLanguage() && translate()
 
   const width = getScreenWidth()
   
@@ -26,7 +26,7 @@ function isSwedishLanguage() {
   return language === 'sv'
 }
 
-function translateToSwedish() {
+function translate() {
   const swedishElements = document.getElementsByClassName(
     'swedish'
   )
