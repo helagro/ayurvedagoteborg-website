@@ -26,7 +26,7 @@ function isSwedishLanguage() {
   return language === 'sv'
 }
 
-window.translate = function(){
+function translate(){
   const swedishElements = document.getElementsByClassName(
     'swedish'
   )
@@ -37,6 +37,7 @@ window.translate = function(){
   )
   toggleAllDisplayNone(englishElements)
 }
+window.translate = translate
 
 /**
  * @param {HTMLCollectionOf<Element>} elements
