@@ -114,6 +114,10 @@ main {
     margin-bottom: 85px;
 }
 
+.courseSubHeader {
+    margin-top: -10px;
+}
+
 /*
 Table styling:
 */
