@@ -1,6 +1,5 @@
 'use strict'
 ;(() => {
-  setHTMLLanguage()
   isSwedishLanguage() && translate()
 
   const width = getScreenWidth()
@@ -18,10 +17,6 @@
     }
   }
 })()
-
-function setHTMLLanguage() {
-  document.documentElement.lang = navigator.language
-}
 
 function isSwedishLanguage() {
   const language = (
