@@ -1,34 +1,36 @@
-const Handlebars = require('handlebars')
 const fs = require('fs')
+const Handlebars = require('handlebars')
 
-const languages = [
-  {
-    inputName: 'english.json',
-    outputName: 'index.html',
-  },
-  {
-    inputName: 'swedish.json',
-    outputName: 'se.html',
-  },
-]
+const PARTIALS_DIR = 'components'
+const TEMPLATES_DIR = 'templates'
+const DESTINATION_DIR = 'dist'
 
-for (const language of languages) {
-  compileLanguage(language)
-}
+fs.readdirSync(PARTIALS_DIR).forEach((filename) => {
+  const partialSource = fs.readFileSync(
+    `${PARTIALS_DIR}/${filename}`,
+    'utf8'
+  )
+  Handlebars.registerPartial(
+    filename.split('.')[0],
+    partialSource
+  )
+})
 
-function compileLanguage(lang) {
+fs.readdirSync(TEMPLATES_DIR).forEach((filename) => {
   const templateSource = fs.readFileSync(
-    'source/template.html',
+    `${TEMPLATES_DIR}/${filename}`,
     'utf8'
   )
-  const contentStr = fs.readFileSync(
-    `source/${lang.inputName}`,
-    'utf8'
+  const compiledTemplate =
+    Handlebars.compile(templateSource)
+
+  const output = compiledTemplate({})
+  console.log(output)
+
+  const filenameNoExt = filename.split('.')[0]
+
+  fs.writeFileSync(
+    `${DESTINATION_DIR}/${filenameNoExt}.html`,
+    output
   )
-
-  const contentObj = JSON.parse(contentStr)
-  const template = Handlebars.compile(templateSource)
-  const result = template(contentObj)
-
-  fs.writeFileSync(`docs/${lang.outputName}`, result)
-}
+})
