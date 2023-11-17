@@ -20,23 +20,38 @@ function registerPartials() {
     })
 }
 
-function compileTemplates() {
-    fs.readdirSync(TEMPLATES_DIR).forEach((filename) => {
-        const templateSource = fs.readFileSync(
-            `${TEMPLATES_DIR}/${filename}`,
-            'utf8'
-        )
+function compileTemplates(dir = TEMPLATES_DIR) {
+    fs.readdirSync(dir).forEach((filename) => {
+        const path = `${dir}/${filename}`
+        if (fs.statSync(path).isDirectory())
+            return compileTemplates(path)
 
+        const template = fs.readFileSync(path, 'utf8')
         const compiledTemplate =
-            Handlebars.compile(templateSource)
+            Handlebars.compile(template)
         const output = compiledTemplate({})
 
-        const filenameNoExt = filename.split('.')[0]
-        fs.writeFileSync(
-            `${DESTINATION_DIR}/${filenameNoExt}.html`,
-            output
+        const newFolderPath = dir.replace(
+            TEMPLATES_DIR,
+            DESTINATION_DIR
         )
+        writeOutputFile(newFolderPath, filename, output)
     })
+}
+
+function writeOutputFile(folderPath, filename, content) {
+    const filenameNoExt = filename.split('.')[0]
+
+    // Creates folder structure if parts missing
+    if (!fs.existsSync(folderPath))
+        fs.mkdirSync(folderPath, {
+            recursive: true,
+        })
+
+    fs.writeFileSync(
+        `${folderPath}/${filenameNoExt}.html`,
+        content
+    )
 }
 
 function copyAssets() {
