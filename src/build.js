@@ -41,18 +41,22 @@ function compileTemplates() {
 
 function copyAssets() {
     fs.readdirSync(ASSETS_DIR).forEach((folderName) => {
-        const newFolderName = `../dist/${folderName}`
+        const newFolderName = `${DESTINATION_DIR}/${folderName}`
 
-        fse.copySync(ASSETS_DIR, newFolderName, {
-            overwrite: true,
-            errorOnExist: false,
-        })
+        fse.copySync(
+            `${ASSETS_DIR}/${folderName}`,
+            newFolderName,
+            {
+                overwrite: true,
+                errorOnExist: false,
+            }
+        )
     })
 }
 
 ;(() => {
     try {
-        fs.rmdirSync(DESTINATION_DIR, { recursive: true })
+        fs.rmSync(DESTINATION_DIR, { recursive: true })
     } catch (e) {
         console.log(e)
     }
