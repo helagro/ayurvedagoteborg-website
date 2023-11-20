@@ -1,41 +1,39 @@
 'use strict'
 ;(() => {
-  isSwedishLanguage() && translate()
+    isSwedishLanguage() && translate()
 
-  const width = getScreenWidth()
-  
-  if (width < 1200) {
-    const menuLinks = getMenuLinks()
-    appendSmallScreenMenu()
-    makeMenuIconResponsive(menuLinks)
-    removeBigLogo()
-    removeBigMenu()
-  }
-  if (width < 1024) {
-    if (calendarExists()) {
-      redesignCalendar()
+    const width = getScreenWidth()
+
+    if (width < 1200) {
+        const menuLinks = getMenuLinks()
+        appendSmallScreenMenu()
+        makeMenuIconResponsive(menuLinks)
+        removeBigLogo()
+        removeBigMenu()
     }
-  }
+    if (width < 1024) {
+        if (calendarExists()) {
+            redesignCalendar()
+        }
+    }
 })()
 
 function isSwedishLanguage() {
-  const language = (
-    navigator.language || navigator.userLanguage
-  ).substring(0, 2)
+    const language = (
+        navigator.language || navigator.userLanguage
+    ).substring(0, 2)
 
-  return language === 'sv'
+    return language === 'sv'
 }
 
-function translate(){
-  const swedishElements = document.getElementsByClassName(
-    'swedish'
-  )
-  toggleAllDisplayNone(swedishElements)
+function translate() {
+    const swedishElements =
+        document.getElementsByClassName('swedish')
+    toggleAllDisplayNone(swedishElements)
 
-  const englishElements = document.getElementsByClassName(
-    'english'
-  )
-  toggleAllDisplayNone(englishElements)
+    const englishElements =
+        document.getElementsByClassName('english')
+    toggleAllDisplayNone(englishElements)
 }
 window.translate = translate
 
@@ -43,31 +41,31 @@ window.translate = translate
  * @param {HTMLCollectionOf<Element>} elements
  */
 function toggleAllDisplayNone(elements) {
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].classList.toggle('displayNone')
-  }
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.toggle('displayNone')
+    }
 }
 
 function getScreenWidth() {
-  return (
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth
-  )
+    return (
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
+    )
 }
 
 /**
  * @returns nodelist with link elements for menu
  */
 function getMenuLinks() {
-  return document.querySelectorAll('.menuItem')
+    return document.querySelectorAll('.menuItem')
 }
 
 function appendSmallScreenMenu() {
-  const smallMenu = document.createElement('div')
-  smallMenu.innerHTML = `
+    const smallMenu = document.createElement('div')
+    smallMenu.innerHTML = `
         <a href="index.html">
-          <img id="logoType" src="img/website/Logga.png" alt="Logotyp">
+          <img id="logoType" src="/img/website/Logga.png" alt="Logotyp">
         </a>
         <div class="menuItem" id="menuIcon">
             <div class="bar1"></div>
@@ -75,20 +73,21 @@ function appendSmallScreenMenu() {
             <div class="bar3"></div>
         </div>
     `
-  smallMenu.classList.add('smallMenu')
+    smallMenu.classList.add('smallMenu')
 
-  const main = document.getElementById('main')
-  main.insertBefore(smallMenu, main.firstChild)
+    const main = document.getElementById('main')
+    main.insertBefore(smallMenu, main.firstChild)
 }
 
 function removeBigLogo() {
-  const headerDiv = document.getElementById('headerDiv')
-  headerDiv.removeChild(headerDiv.firstElementChild)
+    const headerDiv = document.getElementById('headerDiv')
+    headerDiv.removeChild(headerDiv.firstElementChild)
 }
 
 function removeBigMenu() {
-  const mainSection = document.getElementById('mainSection')
-  mainSection.removeChild(mainSection.firstElementChild)
+    const mainSection =
+        document.getElementById('mainSection')
+    mainSection.removeChild(mainSection.firstElementChild)
 }
 
 /**
@@ -97,34 +96,34 @@ function removeBigMenu() {
  * @param menuLinks nodelist with link elements for menu
  */
 function makeMenuIconResponsive(menuLinks) {
-  const menuIcon = document.getElementById('menuIcon')
-  const main = document.getElementById('main')
+    const menuIcon = document.getElementById('menuIcon')
+    const main = document.getElementById('main')
 
-  // to open/close menu
-  menuIcon.addEventListener('click', (event) => {
-    menuIcon.classList.toggle('change')
+    // to open/close menu
+    menuIcon.addEventListener('click', (event) => {
+        menuIcon.classList.toggle('change')
 
-    if (menuIcon.className === 'menuItem change') {
-      openSmallScreenMenu(menuLinks)
-      addFilter()
+        if (menuIcon.className === 'menuItem change') {
+            openSmallScreenMenu(menuLinks)
+            addFilter()
 
-      // stops event from bubbling up to parent nodes
-      event.stopPropagation()
-    } else {
-      closeSmallScreenMenu()
-      removeFilter()
-    }
-  })
+            // stops event from bubbling up to parent nodes
+            event.stopPropagation()
+        } else {
+            closeSmallScreenMenu()
+            removeFilter()
+        }
+    })
 
-  // to close menu
-  main.addEventListener('click', () => {
-    if (menuIcon.className === 'menuItem change') {
-      menuIcon.classList.toggle('change')
+    // to close menu
+    main.addEventListener('click', () => {
+        if (menuIcon.className === 'menuItem change') {
+            menuIcon.classList.toggle('change')
 
-      closeSmallScreenMenu()
-      removeFilter()
-    }
-  })
+            closeSmallScreenMenu()
+            removeFilter()
+        }
+    })
 }
 
 /**
@@ -132,80 +131,86 @@ function makeMenuIconResponsive(menuLinks) {
  * @param menuLinks nodelist with link elements for menu
  */
 function openSmallScreenMenu(menuLinks) {
-  const openMenu = document.createElement('div')
-  openMenu.classList.add('openMenu')
+    const openMenu = document.createElement('div')
+    openMenu.classList.add('openMenu')
 
-  menuLinks.forEach((menuLink) => {
-    const pLink = document.createElement('p')
-    pLink.classList.add('menuLink')
-    pLink.appendChild(menuLink)
-    openMenu.appendChild(pLink)
-  })
+    menuLinks.forEach((menuLink) => {
+        const pLink = document.createElement('p')
+        pLink.classList.add('menuLink')
+        pLink.appendChild(menuLink)
+        openMenu.appendChild(pLink)
+    })
 
-  const menuIcon = document.getElementById('menuIcon')
-  menuIcon.appendChild(openMenu)
+    const menuIcon = document.getElementById('menuIcon')
+    menuIcon.appendChild(openMenu)
 }
 
 //adds a transparent, dark div over the content
 function addFilter() {
-  document.querySelector('.smallMenu').style.borderBottom =
-    '0px'
-  document.getElementById('menuIcon').style.marginRight =
-    '0px'
+    document.querySelector(
+        '.smallMenu'
+    ).style.borderBottom = '0px'
+    document.getElementById('menuIcon').style.marginRight =
+        '0px'
 
-  let filter = document.createElement('div')
-  filter.id = 'darkFilter'
-  document.getElementById('mainSection').appendChild(filter)
+    let filter = document.createElement('div')
+    filter.id = 'darkFilter'
+    document
+        .getElementById('mainSection')
+        .appendChild(filter)
 }
 
 //removes it
 function removeFilter() {
-  document.querySelector('.smallMenu').style.borderBottom =
-    '2px solid gray'
-  document.getElementById('menuIcon').style.marginRight =
-    '10%'
-  document
-    .getElementById('mainSection')
-    .removeChild(document.getElementById('darkFilter'))
+    document.querySelector(
+        '.smallMenu'
+    ).style.borderBottom = '2px solid gray'
+    document.getElementById('menuIcon').style.marginRight =
+        '10%'
+    document
+        .getElementById('mainSection')
+        .removeChild(document.getElementById('darkFilter'))
 }
 
 function closeSmallScreenMenu() {
-  const menuIcon = document.getElementById('menuIcon')
-  menuIcon.removeChild(menuIcon.lastChild)
+    const menuIcon = document.getElementById('menuIcon')
+    menuIcon.removeChild(menuIcon.lastChild)
 }
 
 function calendarExists() {
-  return document.getElementById('calendar')
+    return document.getElementById('calendar')
 }
 
 function redesignCalendar() {
-  const calendarBody = document.getElementById('calendar')
-    .firstElementChild
+    const calendarBody =
+        document.getElementById(
+            'calendar'
+        ).firstElementChild
 
-  const body = document.getElementsByTagName('body')[0]
+    const body = document.getElementsByTagName('body')[0]
 
-  const tableHeadings = calendarBody.children[0].children
+    const tableHeadings = calendarBody.children[0].children
 
-  const style = document.createElement('STYLE')
+    const style = document.createElement('STYLE')
 
-  style.innerHTML = getStringifiedSmallScreenTableStyle()
+    style.innerHTML = getStringifiedSmallScreenTableStyle()
 
-  // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
-  for (let i = 0; i < tableHeadings.length; i++) {
-    style.innerHTML += `
+    // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
+    for (let i = 0; i < tableHeadings.length; i++) {
+        style.innerHTML += `
       td:nth-of-type(${i + 1}):before { content: "${
-      tableHeadings[i].innerHTML
-    }: "; }
+            tableHeadings[i].innerHTML
+        }: "; }
     `
-  }
+    }
 
-  body.appendChild(style)
+    body.appendChild(style)
 }
 
 // style for small screens, inspired by:
 // https://css-tricks.com/responsive-data-tables/
 function getStringifiedSmallScreenTableStyle() {
-  return `
+    return `
     @media only screen and (max-width: 1024px)  {
     
       /* Force table to not be like tables anymore */

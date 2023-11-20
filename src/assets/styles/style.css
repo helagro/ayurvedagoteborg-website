@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -6,7 +7,8 @@ html, body {
 
 html {
     /* Perhaps make img darker*/
-    background: url("../img/website/ocean.jpeg") no-repeat center center fixed;
+    background: url('../img/website/ocean.jpeg') no-repeat
+        center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,8 +16,7 @@ html {
 }
 
 a {
-    color: #0000EE;/*
-    color: rgb(0, 175, 250);*/
+    color: #0000ee;
 }
 
 main {
@@ -38,7 +39,8 @@ main {
 #headerTxt {
     color: white;
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times,
+        'Times New Roman', serif;
     margin-top: 1%;
     margin-bottom: 3%;
 }
@@ -63,17 +65,13 @@ main {
     color: rgb(0, 30, 120);
 }
 
-.displayNone {
-    display: none;
-}
-
-#darkFilter{
+#darkFilter {
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     position: absolute;
     display: block;
@@ -81,23 +79,24 @@ main {
 
 #menu {
     display: flex;
+    column-gap: 1em;
+    padding: 1.3em 1em;
     justify-content: space-around;
     background-color: white;
     border-bottom: 2px solid gray;
 }
 
 #menu a {
-    color: #0000EE;
+    color: #0000ee;
 }
 
-#menu a:visited  {
-    color: #0000EE;
+#menu a:visited {
+    color: #0000ee;
 }
-
-
 
 .menuItem {
-    padding: 15px;
+    width: max-content;
+    max-width: max-content;
 }
 
 #content {
@@ -118,7 +117,7 @@ main {
     font-size: 25px;
     margin: -70px 15px 40px 15px;
     text-align: center;
-    color: #074D8F;
+    color: #074d8f;
     width: fit-content;
 }
 
@@ -128,6 +127,10 @@ main {
     display: block;
     margin-bottom: 10px;
     margin-top: -20px;
+}
+
+.textBlock {
+    margin-bottom: 45px;
 }
 
 /*
@@ -148,7 +151,8 @@ th {
     font-weight: bold;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #ccc;
     text-align: left;
     padding: 8px;
@@ -160,7 +164,7 @@ tr:nth-child(even) {
     color: white;
 }
 
-tr:nth-child(even) > td > a{
+tr:nth-child(even) > td > a {
     color: rgb(230, 230, 255);
 }
 
@@ -182,7 +186,8 @@ tr:nth-child(even) > td > a{
     margin-top: 0px;
 }
 
-.YTVID {/*
+.YTVID {
+    /*
     height 56 % of width*/
     width: 400px;
     height: 224px;
@@ -276,7 +281,9 @@ The bars are for menu icon on small screens,
 change class toggles on/off on click,
 elements appended to DOM with js
 */
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
     width: 35px;
     height: 5px;
     background-color: #333;
@@ -289,7 +296,9 @@ elements appended to DOM with js
     transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-.change .bar2 {opacity: 0;}
+.change .bar2 {
+    opacity: 0;
+}
 
 .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
@@ -320,7 +329,7 @@ elements appended to DOM with js
     #header {
         padding-top: 85px;
         padding-bottom: 2%;
-        background-image: url("../img/website/ocean2.jpeg");
+        background-image: url('../img/website/ocean2.jpeg');
         background-size: cover;
     }
 
@@ -332,7 +341,7 @@ elements appended to DOM with js
     #headerDiv {
         display: initial;
     }
-    
+
     #headerTxt {
         color: white;
         text-align: center;
@@ -344,7 +353,7 @@ elements appended to DOM with js
         margin-right: 2%;
         margin-bottom: 0px;
     }
-    
+
     #headerHeadings {
         margin-top: 5px;
         font-size: 28px;
@@ -378,7 +387,7 @@ elements appended to DOM with js
         bottom: 0;
         left: 0;
         right: 0;
-        background-image: url("../img/website/ocean2.jpeg");
+        background-image: url('../img/website/ocean2.jpeg');
         background-size: cover;
     }
 }
@@ -387,7 +396,7 @@ elements appended to DOM with js
     #headerHeader {
         font-size: 22px;
     }
-    
+
     #headerHeadings {
         margin-top: 5px;
         font-size: 20px;
@@ -423,7 +432,7 @@ elements appended to DOM with js
     #headerTxt {
         font-size: 28px;
     }
-    
+
     .authorImg {
         width: 225px;
     }

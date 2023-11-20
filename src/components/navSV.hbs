@@ -21,7 +21,10 @@
     <div class='menuItem'>
         <a href='Kontakt.html'>Kontakt</a>
     </div>
-    <div class='menuItem'>
-        <a href='#' onclick='window.translate()'>English</a>
-    </div>
+
+    {{#if langLink}}
+        <div class='menuItem'>
+            <a href='{{langLink}}'>English</a>
+        </div>
+    {{/if}}
 </nav>
