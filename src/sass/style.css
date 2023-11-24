@@ -24,35 +24,10 @@ main {
     position: relative;
 }
 
-#headerDiv {
-    display: flex;
-    margin-left: 21%;
-    z-index: 20;
-}
-
 #logoType {
     height: 90px;
     margin-top: 1%;
     margin-right: 4%;
-}
-
-#headerTxt {
-    color: white;
-    text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times,
-        'Times New Roman', serif;
-    margin-top: 1%;
-    margin-bottom: 3%;
-}
-
-#headerHeader {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-#headerHeadings {
-    font-size: 28px;
-    font-weight: bold;
 }
 
 #mainSection {
@@ -160,7 +135,7 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: rgb(0, 30, 120);
+    background-color: #001e78;
     color: white;
 }
 
@@ -227,82 +202,6 @@ tr:nth-child(even) > td > a {
 
 footer {
     height: 85px;
-}
-
-/*
-style for menu on small screen,
-html element gets appended to DOM with the
-responsive.js-file
-*/
-.smallMenu {
-    background-color: white;
-    z-index: 2;
-    padding-left: 15px;
-    padding-top: 10px;
-    height: 75px;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    top: 0%;
-    border-bottom: 2px solid gray;
-}
-
-/*
-Div surrounding the menu icon,
-element appended to DOM with js
-*/
-#menuIcon {
-    cursor: pointer;
-    margin-right: 10%;
-}
-
-/*
-Opened menu on small screens, 
-long height to cover entire page,
-element appended to DOM with js
-*/
-.openMenu {
-    background-color: white;
-    overflow: auto;
-    height: 3000px;
-    width: 200px;
-}
-
-/* elements appended to DOM with js */
-.menuLink {
-    margin-left: 20px;
-    font-size: 22px;
-    margin-top: 12%;
-}
-
-/*
-The bars are for menu icon on small screens,
-change class toggles on/off on click,
-elements appended to DOM with js
-*/
-.bar1,
-.bar2,
-.bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-.change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-.change .bar2 {
-    opacity: 0;
-}
-
-.change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
 }
 
 @media only screen and (max-width: 1300px) {

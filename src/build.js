@@ -1,6 +1,7 @@
 const fs = require('fs')
 const fse = require('fs-extra')
 const Handlebars = require('handlebars')
+const minify = require('html-minifier').minify
 
 const PARTIALS_DIR = 'components'
 const TEMPLATES_DIR = 'templates'
@@ -29,13 +30,17 @@ function compileTemplates(dir = TEMPLATES_DIR) {
         const template = fs.readFileSync(path, 'utf8')
         const compiledTemplate =
             Handlebars.compile(template)
-        const output = compiledTemplate({})
+        const compiled = compiledTemplate({})
+        const minimised = minify(compiled, {
+            collapseWhitespace: true,
+            removeComments: true,
+        })
 
         const newFolderPath = dir.replace(
             TEMPLATES_DIR,
             DESTINATION_DIR
         )
-        writeOutputFile(newFolderPath, filename, output)
+        writeOutputFile(newFolderPath, filename, minimised)
     })
 }
 
