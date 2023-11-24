@@ -2,3 +2,281 @@
 @use 'nav'
 
 $link-color: #0000ee
+
+html,
+body
+    margin: 0
+    padding: 0
+    height: 100%
+
+html
+    /* Perhaps make img darker*/
+    background: url('../img/website/ocean.jpeg') no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+
+a
+    color: #0000ee
+
+main
+    min-height: 100%
+    position: relative
+
+#logoType
+    height: 90px
+    margin-top: 1%
+    margin-right: 4%
+
+#mainSection
+    display: block
+    margin-left: auto
+    margin-right: auto
+    width: 60%
+    font-size: 24px
+    font-family: 'Times New Roman', Times, serif
+    color: rgb(0, 30, 120)
+
+#darkFilter
+    left: 0
+    top: 0
+    width: 100% // Full width
+    height: 100% // Full height
+    background-color: rgb(0, 0, 0)
+    background-color: rgba(0, 0, 0, 0.7)
+    z-index: 1
+    position: absolute
+    display: block
+
+#menu
+    display: flex
+    column-gap: 1em
+    padding: 1.3em 1em
+    justify-content: space-around
+    background-color: white
+    border-bottom: 2px solid gray
+
+    & a
+        color: #0000ee
+
+    & a:visited
+        color: #0000ee
+
+.menuItem
+    width: max-content
+    max-width: max-content
+
+#content
+    padding: 1%
+    padding-left: 3%
+    padding-right: 3%
+    background-color: white
+    overflow: auto
+
+    & h1
+        text-align: center
+        font-size: 48px
+        margin-bottom: 85px
+
+.subheader
+    font-size: 25px
+    margin: -70px 15px 40px 15px
+    text-align: center
+    color: #074d8f
+    width: fit-content
+
+.mainLink
+    text-align: center
+    font-size: 30px
+    display: block
+    margin-bottom: 10px
+    margin-top: -20px
+
+.textBlock
+    margin-bottom: 45px
+
+/* -------------------------- TABLE ------------------------- */
+
+.tableHeader
+    text-align: center
+
+.table
+    width: 100%
+    border-collapse: collapse
+    table-layout: fixed
+
+th
+    font-weight: bold
+
+td,
+th
+    border: 1px solid #ccc
+    text-align: left
+    padding: 8px
+    word-wrap: break-word
+
+tr:nth-child(even)
+    background-color: #001e78
+    color: white
+
+    & > td > a
+        color: rgb(230, 230, 255)
+
+.authorImgDiv
+    margin-bottom: 65px
+    display: grid
+    grid-template-columns: auto auto
+
+.authorImg
+    grid-column-start: 1
+    width: 225px
+
+    &Txt
+        grid-column-start: 2
+        margin-left: 20px
+        margin-right: 10px
+        margin-top: 0px
+
+.YTVID
+    /*
+     height 56 % of width
+    width: 400px
+    height: 224px
+
+.bigBookImg
+    width: 300px
+
+.bookSmallImgDiv
+    display: flex
+    margin-bottom: 80px
+
+.bookSmallImg
+    width: 152px
+    margin-left: 5%
+
+.bookLink
+    margin-left: 40px
+    margin-top: 40px
+    font-size: 28px
+
+.buyBook
+    width: 200px
+
+#buyOnBokus
+    float: right
+
+#bookTitle
+    text-align: left
+
+footer
+    height: 85px
+
+@media only screen and (max-width: 1300px)
+    #headerHeader
+        margin-top: 10px
+        font-size: 28px
+
+    #headerHeadings
+        font-size: 24px
+
+    .YTVID
+        width: 325px
+        height: 182px
+
+@media only screen and (max-width: 1200px)
+    html
+        background: none
+
+    #header
+        padding-top: 85px
+        padding-bottom: 2%
+        background-image: url('../img/website/ocean2.jpeg')
+        background-size: cover
+
+    #logoType
+        margin-top: 12px
+        height: 40px
+
+    #headerDiv
+        display: initial
+
+    #headerTxt
+        color: white
+        text-align: center
+
+    #headerHeader
+        font-size: 36px
+        margin-left: 2%
+        margin-right: 2%
+        margin-bottom: 0px
+
+    #headerHeadings
+        margin-top: 5px
+        font-size: 28px
+
+    #mainSection
+        width: 80%
+        overflow: auto
+        padding-bottom: 85px
+
+    #content h1
+        font-size: 28px
+        margin-bottom: 50px
+
+    .subheader
+        font-size: 24px
+        margin-top: -40px
+        margin-bottom: 30px
+
+    #content
+        font-size: 20px
+        margin-bottom: 50px
+
+    footer
+        height: 85px
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        background-image: url('../img/website/ocean2.jpeg')
+        background-size: cover
+
+@media only screen and (max-width: 1024px)
+    #headerHeader
+        font-size: 22px
+
+    #headerHeadings
+        margin-top: 5px
+        font-size: 20px
+
+    #content h1
+        font-size: 24px
+        margin-top: 40px
+        margin-bottom: 50px
+
+    .subheader
+        font-size: 20px
+        margin-top: -40px
+        margin-bottom: 30px
+
+    #content
+        font-size: 18px
+
+    .authorImgDiv
+        display: initial
+
+    .authorImgTxt
+        margin-left: 0px
+        margin-top: 10px
+
+@media only screen and (max-width: 600px)
+    #headerTxt
+        font-size: 28px
+
+    .authorImg
+        width: 225px
+
+    .YTVID
+        width: 225px
+        height: 126px
