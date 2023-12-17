@@ -22,6 +22,18 @@ nav
             width: max-content
             max-width: max-content
 
+        &.openMenu
+            background-color: white
+            overflow: auto
+            height: 100%
+            width: 260px
+            position: fixed
+            right: 0
+            display: flex !important
+            z-index: 3
+            top: 62px
+            flex-direction: column
+
 .smallMenu
     background-color: white
     z-index: 2
@@ -46,7 +58,7 @@ nav
             margin: 6px 0
             transition: 0.4s
 
-        .change
+        &.change
             .bar1
                 -webkit-transform: rotate(-45deg) translate(-9px, 6px)
                 transform: rotate(-45deg) translate(-9px, 6px)
@@ -58,17 +70,12 @@ nav
                 -webkit-transform: rotate(45deg) translate(-8px, -8px)
                 transform: rotate(45deg) translate(-8px, -8px)
 
-.openMenu
-    background-color: white
-    overflow: auto
-    height: 3000px
-    width: 300px
-
 /* ----------------------- BREAKPOINTS ---------------------- */
 
 @include breakpoints.respond-small
-    .navLink
-        display: none
+    nav
+        .navLinks
+            display: none
 
     .smallMenu
         display: flex

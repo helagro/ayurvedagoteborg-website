@@ -74,7 +74,7 @@ function makeMenuIconResponsive() {
  * @param menuLinks nodelist with link elements for menu
  */
 function toggleSmallScreenMenu() {
-    const navBar = document.getElementById('menu')
+    const navBar = document.getElementById('navLinks')
     navBar.classList.toggle('openMenu')
 }
 
@@ -99,7 +99,7 @@ function removeFilter() {
         '.smallMenu'
     ).style.borderBottom = '2px solid gray'
     document.getElementById('menuIcon').style.marginRight =
-        '10%'
+        '0'
     document
         .getElementById('mainSection')
         .removeChild(document.getElementById('darkFilter'))
