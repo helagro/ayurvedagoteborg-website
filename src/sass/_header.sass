@@ -1,7 +1,14 @@
+@use 'breakpoints'
+
+header
+    position: relative
+
 #headerDiv
-    display: flex
-    margin-left: 21%
-    z-index: 20
+    margin: 0 auto
+    width: max-content
+    display: grid
+    grid-template-columns: min-content max-content
+    column-gap: 1em
 
 #headerTxt
     color: white
@@ -12,8 +19,36 @@
 
 #headerHeader
     font-size: 36px
+    width: max-content
     font-weight: bold
 
-#headerHeadings
-    font-size: 28px
-    font-weight: bold
+@include breakpoints.respond-small
+    .headerLogo
+        display: none
+
+    #headerHeader
+        font-size: 22px
+
+    #headerHeadings
+        margin-top: 5px
+        font-size: 20px
+
+@include breakpoints.respond-medium
+    #header
+        padding-top: 85px
+        padding-bottom: 2%
+        background-image: url('../img/website/ocean2.jpeg')
+        background-size: cover
+
+    #headerDiv
+        display: grid
+
+    #headerTxt
+        color: white
+        text-align: center
+
+    #headerHeader
+        font-size: 36px
+        margin-left: 2%
+        margin-right: 2%
+        margin-bottom: 0px

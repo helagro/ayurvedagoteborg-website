@@ -1,22 +1,24 @@
 <nav id='menu'>
-    <div class='menuItem'>
-        <a href='index.html'>Start</a>
-    </div>
-    <div class='menuItem'>
-        <a href='ayurveda.html'>About us and Ayurveda</a>
-    </div>
-    <div class='menuItem'>
-        <a href='courses.html'>Treatments and courses</a>
-    </div>
-    <div class='menuItem'>
-        <a href='contact.html'>Contact</a>
-    </div>
-
-    {{#if langLink}}
-        <div class='menuItem'>
-            <a href='{{langLink}}'>Swedish</a>
+    <div class='navLinks'>
+        <div class='menuItem navLink'>
+            <a href='index.html'>Start</a>
         </div>
-    {{/if}}
+        <div class='menuItem navLink'>
+            <a href='ayurveda.html'>About us and Ayurveda</a>
+        </div>
+        <div class='menuItem navLink'>
+            <a href='courses.html'>Treatments and courses</a>
+        </div>
+        <div class='menuItem navLink'>
+            <a href='contact.html'>Contact</a>
+        </div>
+
+        {{#if langLink}}
+            <div class='menuItem navLink'>
+                <a href='{{langLink}}'>Swedish</a>
+            </div>
+        {{/if}}
+    </div>
 
     <a href='index.html'>
         <img

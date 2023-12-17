@@ -1,8 +1,27 @@
+@use 'breakpoints'
 
-/*  
- style for menu on small screen,
- html element gets appended to DOM with the
- responsive.js-file
+nav
+    display: flex
+    padding: 1.3em 1em
+    background-color: white
+    border-bottom: 2px solid gray
+    width: 100%
+
+    a
+        color: #0000ee
+
+        &:visited
+            color: #0000ee
+
+    .navLinks
+        display: flex
+        justify-content: space-around
+        width: 100%
+        column-gap: 1em
+
+        .menuItem
+            width: max-content
+            max-width: max-content
 
 .smallMenu
     background-color: white
@@ -16,57 +35,40 @@
     top: 0%
     border-bottom: 2px solid gray
 
-/* 
- Div surrounding the menu icon,
- element appended to DOM with js
-
-#menuIcon
-    cursor: pointer
-
-/* 
- Opened menu on small screens, 
- long height to cover entire page,
- element appended to DOM with js
-
 .openMenu
     background-color: white
     overflow: auto
     height: 3000px
     width: 300px
 
-/* elements appended to DOM with js */
-.menuLink
-    margin-left: 20px
-    font-size: 22px
-    margin-top: 12%
+/* --------------------- HAMBURGER ICON --------------------- */
 
-/*
- The bars are for menu icon on small screens,
- change class toggles on/off on click,
- elements appended to DOM with js
+#menuIcon
+    cursor: pointer
 
-.bar1,
-.bar2,
-.bar3
+.bar1, .bar2, .bar3
     width: 35px
     height: 5px
     background-color: #333
     margin: 6px 0
     transition: 0.4s
 
-.change .bar1
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px)
-    transform: rotate(-45deg) translate(-9px, 6px)
+.change
+    .bar1
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px)
+        transform: rotate(-45deg) translate(-9px, 6px)
 
-.change .bar2
-    opacity: 0
+    .bar2
+        opacity: 0
 
-.change .bar3
-    -webkit-transform: rotate(45deg) translate(-8px, -8px)
-    transform: rotate(45deg) translate(-8px, -8px)
+    .bar3
+        -webkit-transform: rotate(45deg) translate(-8px, -8px)
+        transform: rotate(45deg) translate(-8px, -8px)
 
-@media only screen and (max-width: 1024px)
-    .linkList
+/* ----------------------- BREAKPOINTS ---------------------- */
+
+@include breakpoints.respond-small
+    .navLink
         display: none
 
     .smallMenu
@@ -93,12 +95,12 @@
         padding-left: 40%
         word-wrap: break-word
 
-    td:before
-        /* Now like a table header */
-        position: absolute
-        /* Top/left values mimic padding */
-        top: 6px
-        left: 6px
-        width: 45%
-        padding-right: 10px
-        white-space: nowrap
+        &:before
+            /* Now like a table header */
+            position: absolute
+            /* Top/left values mimic padding */
+            top: 6px
+            left: 6px
+            width: 45%
+            padding-right: 10px
+            white-space: nowrap

@@ -1,19 +1,11 @@
 'use strict'
 ;(() => {
-    isSwedishLanguage() && translate()
-
     const width = getScreenWidth()
 
-    if (width < 1200) {
-        const menuLinks = getMenuLinks()
-        makeMenuIconResponsive(menuLinks)
-        removeBigLogo()
-        removeBigMenu()
-    }
+    makeMenuIconResponsive()
+
     if (width < 1024) {
-        if (calendarExists()) {
-            redesignCalendar()
-        }
+        if (calendarExists()) redesignCalendar()
     }
 })()
 
@@ -24,17 +16,6 @@ function isSwedishLanguage() {
 
     return language === 'sv'
 }
-
-function translate() {
-    const swedishElements =
-        document.getElementsByClassName('swedish')
-    toggleAllDisplayNone(swedishElements)
-
-    const englishElements =
-        document.getElementsByClassName('english')
-    toggleAllDisplayNone(englishElements)
-}
-window.translate = translate
 
 /**
  * @param {HTMLCollectionOf<Element>} elements
@@ -54,44 +35,25 @@ function getScreenWidth() {
 }
 
 /**
- * @returns nodelist with link elements for menu
- */
-function getMenuLinks() {
-    return document.querySelectorAll('.menuItem')
-}
-
-function removeBigLogo() {
-    const headerDiv = document.getElementById('headerDiv')
-    headerDiv.removeChild(headerDiv.firstElementChild)
-}
-
-function removeBigMenu() {
-    const mainSection =
-        document.getElementById('mainSection')
-    mainSection.removeChild(mainSection.firstElementChild)
-}
-
-/**
  * Makes it so the small screen menu opens and closes
  * on click
  * @param menuLinks nodelist with link elements for menu
  */
-function makeMenuIconResponsive(menuLinks) {
+function makeMenuIconResponsive() {
     const menuIcon = document.getElementById('menuIcon')
     const main = document.getElementById('main')
 
     // to open/close menu
     menuIcon.addEventListener('click', (event) => {
         menuIcon.classList.toggle('change')
+        toggleSmallScreenMenu()
 
         if (menuIcon.className === 'menuItem change') {
-            openSmallScreenMenu(menuLinks)
             addFilter()
 
             // stops event from bubbling up to parent nodes
             event.stopPropagation()
         } else {
-            closeSmallScreenMenu()
             removeFilter()
         }
     })
@@ -101,7 +63,7 @@ function makeMenuIconResponsive(menuLinks) {
         if (menuIcon.className === 'menuItem change') {
             menuIcon.classList.toggle('change')
 
-            closeSmallScreenMenu()
+            toggleSmallScreenMenu()
             removeFilter()
         }
     })
@@ -111,19 +73,9 @@ function makeMenuIconResponsive(menuLinks) {
  * Opens menu and displays links
  * @param menuLinks nodelist with link elements for menu
  */
-function openSmallScreenMenu(menuLinks) {
-    const openMenu = document.createElement('div')
-    openMenu.classList.add('openMenu')
-
-    menuLinks.forEach((menuLink) => {
-        const pLink = document.createElement('p')
-        pLink.classList.add('menuLink')
-        pLink.appendChild(menuLink)
-        openMenu.appendChild(pLink)
-    })
-
-    const menuIcon = document.getElementById('menuIcon')
-    menuIcon.appendChild(openMenu)
+function toggleSmallScreenMenu() {
+    const navBar = document.getElementById('menu')
+    navBar.classList.toggle('openMenu')
 }
 
 //adds a transparent, dark div over the content
@@ -153,10 +105,7 @@ function removeFilter() {
         .removeChild(document.getElementById('darkFilter'))
 }
 
-function closeSmallScreenMenu() {
-    const menuIcon = document.getElementById('menuIcon')
-    menuIcon.removeChild(menuIcon.lastChild)
-}
+/* ------------------------ CALENDAR ------------------------ */
 
 function calendarExists() {
     return document.getElementById('calendar')
