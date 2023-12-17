@@ -6,7 +6,6 @@
 
     if (width < 1200) {
         const menuLinks = getMenuLinks()
-        appendSmallScreenMenu()
         makeMenuIconResponsive(menuLinks)
         removeBigLogo()
         removeBigMenu()
@@ -59,24 +58,6 @@ function getScreenWidth() {
  */
 function getMenuLinks() {
     return document.querySelectorAll('.menuItem')
-}
-
-function appendSmallScreenMenu() {
-    const smallMenu = document.createElement('div')
-    smallMenu.innerHTML = `
-        <a href="index.html">
-          <img id="logoType" src="/img/website/Logga.png" alt="Logotyp">
-        </a>
-        <div class="menuItem" id="menuIcon">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-    `
-    smallMenu.classList.add('smallMenu')
-
-    const main = document.getElementById('main')
-    main.insertBefore(smallMenu, main.firstChild)
 }
 
 function removeBigLogo() {
@@ -193,7 +174,7 @@ function redesignCalendar() {
 
     const style = document.createElement('STYLE')
 
-    style.innerHTML = getStringifiedSmallScreenTableStyle()
+    style.innerHTML = ''
 
     // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
     for (let i = 0; i < tableHeadings.length; i++) {
@@ -205,47 +186,4 @@ function redesignCalendar() {
     }
 
     body.appendChild(style)
-}
-
-// style for small screens, inspired by:
-// https://css-tricks.com/responsive-data-tables/
-function getStringifiedSmallScreenTableStyle() {
-    return `
-    @media only screen and (max-width: 1024px)  {
-    
-      /* Force table to not be like tables anymore */
-      table, thead, tbody, th, td, tr { 
-        display: block; 
-      }
-      
-      /* Hide table headers (but not display: none;, for accessibility) */
-      th { 
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-      
-      tr { border: 1px solid #ccc; }
-      
-      td { 
-        /* Behave  like a "row" */
-        border: none;
-        border-bottom: 1px solid #eee; 
-        position: relative;
-        padding-left: 40%; 
-        word-wrap: break-word;
-      }
-      
-      td:before { 
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%; 
-        padding-right: 10px; 
-        white-space: nowrap;
-      }
-    }
-  `
 }
