@@ -9,6 +9,7 @@ header
         display: grid
         grid-template-columns: min-content max-content
         column-gap: 1em
+        box-sizing: border-box
 
         #headerTxt
             color: white
@@ -22,12 +23,23 @@ header
                 width: max-content
                 font-weight: bold
 
-@include breakpoints.respond-small
-    .headerLogo
-        display: none
-
+@media screen and (max-width: 365px)
     #headerHeader
-        font-size: 22px
+        font-size: 25px !important
+        width: min-content !important
+
+@include breakpoints.respond-small
+    header
+        #headerDiv
+            .headerLogo
+                display: none
+
+            #headerTxt
+                width: 100%
+                display: block
+
+                #headerHeader
+                    font-size: 22px
 
 @include breakpoints.respond-medium
     header
