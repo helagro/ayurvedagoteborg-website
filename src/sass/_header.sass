@@ -3,24 +3,24 @@
 header
     position: relative
 
-#headerDiv
-    margin: 0 auto
-    width: max-content
-    display: grid
-    grid-template-columns: min-content max-content
-    column-gap: 1em
+    #headerDiv
+        margin: 0 auto
+        width: max-content
+        display: grid
+        grid-template-columns: min-content max-content
+        column-gap: 1em
 
-#headerTxt
-    color: white
-    text-align: center
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-    margin-top: 1%
-    margin-bottom: 3%
+        #headerTxt
+            color: white
+            text-align: center
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+            margin-top: 1%
+            margin-bottom: 3%
 
-#headerHeader
-    font-size: 36px
-    width: max-content
-    font-weight: bold
+            #headerHeader
+                font-size: 36px
+                width: max-content
+                font-weight: bold
 
 @include breakpoints.respond-small
     .headerLogo
@@ -29,26 +29,22 @@ header
     #headerHeader
         font-size: 22px
 
-    #headerHeadings
-        margin-top: 5px
-        font-size: 20px
-
 @include breakpoints.respond-medium
-    #header
+    header
         padding-top: 85px
         padding-bottom: 2%
         background-image: url('../img/website/ocean2.jpeg')
         background-size: cover
 
-    #headerDiv
-        display: grid
+        #headerDiv
+            display: grid
 
-    #headerTxt
-        color: white
-        text-align: center
+            #headerTxt
+                color: white
+                text-align: center
 
-    #headerHeader
-        font-size: 36px
-        margin-left: 2%
-        margin-right: 2%
-        margin-bottom: 0px
+                #headerHeader
+                    font-size: 36px
+                    margin-left: 2%
+                    margin-right: 2%
+                    margin-bottom: 0px
