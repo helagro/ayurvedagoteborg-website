@@ -35,29 +35,18 @@ function makeMenuIconResponsive() {
     const darkFilter = document.getElementById('darkFilter')
 
     // to open/close menu
-    menuIcon.addEventListener('click', (event) => {
-        menuIcon.classList.toggle('change')
-        toggleSmallScreenMenu()
-
-        if (menuIcon.className === 'menuItem change') {
-            event.stopPropagation()
-        }
-    })
+    menuIcon.addEventListener(
+        'click',
+        toggleSmallScreenMenu
+    )
 
     // to close menu
-    darkFilter.addEventListener('click', () => {
-        if (menuIcon.className === 'menuItem change') {
-            menuIcon.classList.toggle('change')
-
-            toggleSmallScreenMenu()
-        }
-    })
+    darkFilter.addEventListener(
+        'click',
+        toggleSmallScreenMenu
+    )
 }
 
-/**
- * Opens menu and displays links
- * @param menuLinks nodelist with link elements for menu
- */
 function toggleSmallScreenMenu() {
     const smallMenuBar =
         document.getElementById('smallMenu')
