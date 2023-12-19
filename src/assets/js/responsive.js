@@ -2,8 +2,6 @@
 ;(() => {
     const width = getScreenWidth()
 
-    makeMenuIconResponsive()
-
     if (width < 1024) {
         if (calendarExists()) redesignCalendar()
     }
@@ -25,37 +23,17 @@ function getScreenWidth() {
     )
 }
 
-/**
- * Makes it so the small screen menu opens and closes
- * on click
- * @param menuLinks nodelist with link elements for menu
- */
-function makeMenuIconResponsive() {
-    const menuIcon = document.getElementById('menuIcon')
-    const darkFilter = document.getElementById('darkFilter')
-
-    // to open/close menu
-    menuIcon.addEventListener(
-        'click',
-        toggleSmallScreenMenu
-    )
-
-    // to close menu
-    darkFilter.addEventListener(
-        'click',
-        toggleSmallScreenMenu
-    )
-}
-
 function toggleSmallScreenMenu() {
     const smallMenuBar =
         document.getElementById('smallMenu')
     const navLinks = document.getElementById('navLinks')
     const darkMenu = document.getElementById('darkFilter')
+    const menuIcon = document.getElementById('menuIcon')
 
     smallMenuBar.classList.toggle('openMenu')
     navLinks.classList.toggle('openMenu')
     darkMenu.classList.toggle('openMenu')
+    menuIcon.classList.toggle('openMenu')
 }
 
 /* ------------------------ CALENDAR ------------------------ */
