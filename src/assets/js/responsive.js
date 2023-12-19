@@ -17,15 +17,6 @@ function isSwedishLanguage() {
     return language === 'sv'
 }
 
-/**
- * @param {HTMLCollectionOf<Element>} elements
- */
-function toggleAllDisplayNone(elements) {
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.toggle('displayNone')
-    }
-}
-
 function getScreenWidth() {
     return (
         window.innerWidth ||
@@ -41,7 +32,7 @@ function getScreenWidth() {
  */
 function makeMenuIconResponsive() {
     const menuIcon = document.getElementById('menuIcon')
-    const main = document.getElementById('main')
+    const darkFilter = document.getElementById('darkFilter')
 
     // to open/close menu
     menuIcon.addEventListener('click', (event) => {
@@ -49,22 +40,16 @@ function makeMenuIconResponsive() {
         toggleSmallScreenMenu()
 
         if (menuIcon.className === 'menuItem change') {
-            addFilter()
-
-            // stops event from bubbling up to parent nodes
             event.stopPropagation()
-        } else {
-            removeFilter()
         }
     })
 
     // to close menu
-    main.addEventListener('click', () => {
+    darkFilter.addEventListener('click', () => {
         if (menuIcon.className === 'menuItem change') {
             menuIcon.classList.toggle('change')
 
             toggleSmallScreenMenu()
-            removeFilter()
         }
     })
 }
@@ -74,35 +59,14 @@ function makeMenuIconResponsive() {
  * @param menuLinks nodelist with link elements for menu
  */
 function toggleSmallScreenMenu() {
-    const navBar = document.getElementById('navLinks')
-    navBar.classList.toggle('openMenu')
-}
+    const smallMenuBar =
+        document.getElementById('smallMenu')
+    const navLinks = document.getElementById('navLinks')
+    const darkMenu = document.getElementById('darkFilter')
 
-//adds a transparent, dark div over the content
-function addFilter() {
-    document.querySelector(
-        '.smallMenu'
-    ).style.borderBottom = '0px'
-    document.getElementById('menuIcon').style.marginRight =
-        '0px'
-
-    let filter = document.createElement('div')
-    filter.id = 'darkFilter'
-    document
-        .getElementById('mainSection')
-        .appendChild(filter)
-}
-
-//removes it
-function removeFilter() {
-    document.querySelector(
-        '.smallMenu'
-    ).style.borderBottom = '2px solid gray'
-    document.getElementById('menuIcon').style.marginRight =
-        '0'
-    document
-        .getElementById('mainSection')
-        .removeChild(document.getElementById('darkFilter'))
+    smallMenuBar.classList.toggle('openMenu')
+    navLinks.classList.toggle('openMenu')
+    darkMenu.classList.toggle('openMenu')
 }
 
 /* ------------------------ CALENDAR ------------------------ */

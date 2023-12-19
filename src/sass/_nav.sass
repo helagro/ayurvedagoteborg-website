@@ -1,15 +1,10 @@
 @use 'breakpoints'
+@use 'vars'
 
 nav
     background-color: white
     border-bottom: 2px solid gray
     width: 100%
-
-    a
-        color: #0000ee
-
-        &:visited
-            color: #0000ee
 
     .navLinks
         display: flex
@@ -22,6 +17,12 @@ nav
         .menuItem
             width: max-content
             max-width: max-content
+
+            a
+                color: vars.$link-color
+
+                &:visited
+                    color: vars.$link-color
 
         &.openMenu
             background-color: white
@@ -50,6 +51,9 @@ nav
     top: 0
     left: 0
     border-bottom: 2px solid gray
+
+    &.openMenu
+        border-bottom: none !important
 
     #menuIcon
         cursor: pointer
