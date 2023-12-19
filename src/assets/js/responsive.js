@@ -1,10 +1,7 @@
 'use strict'
 ;(() => {
-    const width = getScreenWidth()
-
-    if (width < 1024) {
-        if (calendarExists()) redesignCalendar()
-    }
+    if (getScreenWidth() < 1024 && calendarExists())
+        redesignCalendar()
 })()
 
 function isSwedishLanguage() {
@@ -48,12 +45,9 @@ function redesignCalendar() {
             'calendar'
         ).firstElementChild
 
-    const body = document.getElementsByTagName('body')[0]
-
     const tableHeadings = calendarBody.children[0].children
 
     const style = document.createElement('STYLE')
-
     style.innerHTML = ''
 
     // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
@@ -65,5 +59,5 @@ function redesignCalendar() {
     `
     }
 
-    body.appendChild(style)
+    document.body.appendChild(style)
 }
