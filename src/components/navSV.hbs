@@ -25,7 +25,11 @@
 
         {{#if langLink}}
             <div class='menuItem navLink'>
-                <a href='{{langLink}}'>English</a>
+                <a
+                    href='{{langLink}}'
+                    id='translateLink'
+                    onclick='disableAutoTranslation()'
+                >English</a>
             </div>
         {{/if}}
     </div>
