@@ -1,0 +1,119 @@
+@use 'breakpoints'
+@use 'vars'
+
+nav
+    background-color: white
+    border-bottom: 2px solid gray
+    width: 100%
+
+    .navLinks
+        display: flex
+        justify-content: space-around
+        width: 100%
+        column-gap: 1em
+        padding: 1.3em 1em
+        box-sizing: border-box
+
+        .menuItem
+            width: max-content
+            max-width: max-content
+
+            a
+                color: vars.$link-color
+
+                &:visited
+                    color: vars.$link-color
+
+        &.openMenu
+            background-color: white
+            overflow: auto
+            height: 100%
+            justify-content: flex-start
+            row-gap: 1em
+            width: 280px
+            position: fixed
+            right: 0
+            display: flex !important
+            z-index: 3
+            top: 62px
+            flex-direction: column
+
+.smallMenu
+    background-color: white
+    z-index: 2
+    padding: 10px 15px 0 15px
+    box-sizing: border-box
+    height: 62px
+    width: 100%
+    position: fixed
+    display: none
+    justify-content: space-between
+    top: 0
+    left: 0
+    border-bottom: 2px solid gray
+
+    &.openMenu
+        border-bottom: none !important
+
+    #menuIcon
+        cursor: pointer
+
+        .bar1, .bar2, .bar3
+            width: 36px
+            height: 5px
+            background-color: #333
+            margin: 6px 0
+            transition: 0.4s
+
+        &.openMenu
+            .bar1
+                -webkit-transform: rotate(-45deg) translate(-9px, 6px)
+                transform: rotate(-45deg) translate(-9px, 6px)
+
+            .bar2
+                opacity: 0
+
+            .bar3
+                -webkit-transform: rotate(45deg) translate(-8px, -8px)
+                transform: rotate(45deg) translate(-8px, -8px)
+
+/* ----------------------- BREAKPOINTS ---------------------- */
+
+@include breakpoints.respond-small
+    nav
+        .navLinks
+            display: none
+
+    .smallMenu
+        display: flex
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr
+        display: block
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    th
+        position: absolute
+        top: -9999px
+        left: -9999px
+
+    tr
+        border: 1px solid #ccc
+
+    td
+        /* Behave  like a "row" */
+        border: none
+        border-bottom: 1px solid #eee
+        position: relative
+        padding-left: 40%
+        word-wrap: break-word
+
+        &:before
+            /* Now like a table header */
+            position: absolute
+            /* Top/left values mimic padding */
+            top: 6px
+            left: 6px
+            width: 45%
+            padding-right: 10px
+            white-space: nowrap

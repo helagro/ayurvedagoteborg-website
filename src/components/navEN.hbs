@@ -1,0 +1,48 @@
+<nav id='menu'>
+    <div class='navLinks' id='navLinks'>
+        <div class='menuItem navLink'>
+            <a href='/en/index.html'>Start</a>
+        </div>
+        <div class='menuItem navLink'>
+            <a href='/en/ayurveda.html'>About us and
+                Ayurveda</a>
+        </div>
+        <div class='menuItem navLink'>
+            <a href='/en/courses.html'>Treatments and
+                courses</a>
+        </div>
+        <div class='menuItem navLink'>
+            <a href='/en/contact.html'>Contact</a>
+        </div>
+
+        {{#if langLink}}
+            <div class='menuItem navLink'>
+                <a
+                    href='{{langLink}}'
+                    id='translateLink'
+                    onclick='disableAutoTranslation()'
+                >Swedish</a>
+            </div>
+        {{/if}}
+    </div>
+
+    <div
+        class='smallMenu'
+        id='smallMenu'
+        onclick='toggleSmallScreenMenu()'
+    >
+        <a href='/en/index.html'>
+            <img
+                id='logoType'
+                src='/img/website/Logga.png'
+                alt='Logotyp'
+            />
+        </a>
+        <div class='menuItem' id='menuIcon'>
+            <div class='bar1'></div>
+            <div class='bar2'></div>
+            <div class='bar3'></div>
+        </div>
+    </div>
+
+</nav>
