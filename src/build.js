@@ -76,7 +76,8 @@ function copyAssets() {
 
 ;(() => {
     try {
-        fs.rmSync(DESTINATION_DIR, { recursive: true })
+        if (fs.existsSync(DESTINATION_DIR))
+            fs.rmSync(DESTINATION_DIR, { recursive: true })
     } catch (e) {
         console.log(e)
     }
