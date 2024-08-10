@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function compileSass {
     ./node_modules/.bin/sass $1 $2 --style=compressed --no-source-map
 }
