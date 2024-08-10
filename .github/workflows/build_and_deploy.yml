@@ -48,6 +48,6 @@ jobs:
                   FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
               run: |
                   lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -e "
-                  mirror --reverse --delete --verbose ./dist ayurvedagoteborg.se/public_html;
+                  mirror --reverse --delete --verbose . ayurvedagoteborg.se/public_html;
                   bye
                   "
