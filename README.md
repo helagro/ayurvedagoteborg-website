@@ -1,3 +1,7 @@
+## Info
+
+There is a pipeline triggered by commits to main, that will both§ build and deploy the website
+
 ## Build with:
 
 ```
