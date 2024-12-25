@@ -1,0 +1,427 @@
+header {
+    position: relative;
+}
+header #headerDiv {
+    margin: 0 auto;
+    width: -moz-max-content;
+    width: max-content;
+    display: grid;
+    grid-template-columns: min-content max-content;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+    box-sizing: border-box;
+}
+header #headerDiv #headerTxt {
+    color: white;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times,
+        'Times New Roman', serif;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+header #headerDiv #headerTxt #headerHeader {
+    font-size: 36px;
+    width: -moz-max-content;
+    width: max-content;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 365px) {
+    #headerHeader {
+        font-size: 25px !important;
+        width: -moz-min-content !important;
+        width: min-content !important;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    header #headerDiv .headerLogo {
+        display: none;
+    }
+    header #headerDiv #headerTxt {
+        width: 100%;
+        display: block;
+    }
+    header #headerDiv #headerTxt #headerHeader {
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    header {
+        padding-top: 85px;
+        padding-bottom: 2%;
+        background-image: url('../img/website/ocean2.jpeg');
+        background-size: cover;
+    }
+    header #headerDiv {
+        display: grid;
+    }
+    header #headerDiv #headerTxt {
+        color: white;
+        text-align: center;
+    }
+    header #headerDiv #headerTxt #headerHeader {
+        font-size: 36px;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 0px;
+    }
+}
+nav {
+    background-color: white;
+    border-bottom: 2px solid gray;
+    width: 100%;
+}
+nav .navLinks {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+    padding: 1.3em 1em;
+    box-sizing: border-box;
+}
+nav .navLinks .menuItem {
+    width: -moz-max-content;
+    width: max-content;
+    max-width: -moz-max-content;
+    max-width: max-content;
+}
+nav .navLinks .menuItem a {
+    color: #0000ee;
+}
+nav .navLinks .menuItem a:visited {
+    color: #0000ee;
+}
+nav .navLinks.openMenu {
+    background-color: white;
+    overflow: auto;
+    height: 100%;
+    justify-content: flex-start;
+    row-gap: 1em;
+    width: 280px;
+    position: fixed;
+    right: 0;
+    display: flex !important;
+    z-index: 3;
+    top: 62px;
+    flex-direction: column;
+}
+
+.smallMenu {
+    background-color: white;
+    z-index: 2;
+    padding: 10px 15px 0 15px;
+    box-sizing: border-box;
+    height: 62px;
+    width: 100%;
+    position: fixed;
+    display: none;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid gray;
+}
+.smallMenu.openMenu {
+    border-bottom: none !important;
+}
+.smallMenu #menuIcon {
+    cursor: pointer;
+}
+.smallMenu #menuIcon .bar1,
+.smallMenu #menuIcon .bar2,
+.smallMenu #menuIcon .bar3 {
+    width: 36px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.smallMenu #menuIcon.openMenu .bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+.smallMenu #menuIcon.openMenu .bar2 {
+    opacity: 0;
+}
+.smallMenu #menuIcon.openMenu .bar3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* ----------------------- BREAKPOINTS ---------------------- */
+@media only screen and (max-width: 1024px) {
+    nav .navLinks {
+        display: none;
+    }
+    .smallMenu {
+        display: flex;
+    }
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 40%;
+        word-wrap: break-word;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+}
+.tableHeader {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    font-weight: bold;
+}
+
+td,
+th {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+    background-color: #001e78;
+    color: white;
+}
+tr:nth-child(even) > td > a {
+    color: rgb(230, 230, 255);
+}
+
+/* -------------------------- TAGS -------------------------- */
+html {
+    background: url('../img/website/ocean.jpeg') no-repeat
+        center center fixed;
+    background-size: cover;
+}
+html,
+html body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+a {
+    color: #0000ee;
+}
+
+footer {
+    height: 85px;
+}
+
+/* --------------------- FOR: BOOKS PAGES -------------------- */
+.buyBook {
+    width: 200px;
+}
+
+#buyOnBokus {
+    float: right;
+}
+
+/* --------------------- FOR MENU --------------------- */
+#darkFilter {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    position: fixed;
+    display: none;
+}
+#darkFilter.openMenu {
+    display: block;
+}
+
+/* ------------------------- GENERAL ------------------------ */
+#logoType {
+    height: 70px;
+    padding: 10px;
+}
+
+main {
+    min-height: 100%;
+    position: relative;
+}
+main #mainSection {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 30, 120);
+    max-width: 1000px;
+    box-shadow: 2px 7px 10px rgba(38, 38, 38, 0.5254901961);
+}
+main #mainSection #content {
+    padding: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: white;
+    overflow: auto;
+}
+main #mainSection #content h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 85px;
+}
+
+.mainLink {
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+.subheader {
+    font-size: 25px;
+    margin: -70px 15px 40px 15px;
+    text-align: center;
+    color: #074d8f;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.textBlock {
+    margin-bottom: 45px;
+}
+
+.textImgDiv {
+    margin-bottom: 65px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.textImgImg {
+    grid-column-start: 1;
+    width: 225px;
+}
+.textImgTxt {
+    grid-column-start: 2;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
+.YTVID {
+    width: 400px;
+    height: 224px;
+}
+
+.bigImg {
+    width: 300px;
+}
+
+@media only screen and (max-width: 1300px) {
+    html {
+        background: none;
+    }
+    #logoType {
+        height: 40px;
+        padding: 0;
+    }
+    .subheader {
+        font-size: 24px;
+        margin-top: -40px;
+        margin-bottom: 30px;
+    }
+    main #mainSection {
+        width: 80%;
+        overflow: auto;
+        padding-bottom: 85px;
+        box-shadow: none;
+    }
+    main #mainSection #content {
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+    main #mainSection #content h1 {
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+    footer {
+        height: 85px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url('../img/website/ocean2.jpeg');
+        background-size: cover;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    main #mainSection #content {
+        font-size: 18px;
+    }
+    main #mainSection #content h1 {
+        font-size: 24px;
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+    .textImgDiv {
+        display: initial;
+    }
+    .textImgTxt {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .subheader {
+        font-size: 20px;
+        margin-top: -40px;
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #headerTxt {
+        font-size: 28px;
+    }
+    main #mainSection #content h1 {
+        font-size: 24px;
+    }
+    .textImgImg {
+        width: 225px;
+    }
+    .YTVID {
+        width: 225px;
+        height: 126px;
+    }
+} /*# sourceMappingURL=main.css.map */

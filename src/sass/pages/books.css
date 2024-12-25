@@ -1,0 +1,15 @@
+.bookSmallImgDiv {
+  display: flex;
+  margin-bottom: 80px;
+}
+
+.bookSmallImg {
+  width: 152px;
+  margin-left: 5%;
+}
+
+.bookLink {
+  margin-left: 40px;
+  margin-top: 40px;
+  font-size: 28px;
+}/*# sourceMappingURL=books.css.map */

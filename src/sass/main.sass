@@ -1,7 +1,10 @@
 @use 'vars'
-@use 'breakpoints'
 @use 'header'
 @use 'nav'
+@use 'table'
+@use 'media' as media
+
+/* -------------------------- TAGS -------------------------- */
 
 html
     background: url('../img/website/ocean.jpeg') no-repeat center center fixed
@@ -17,6 +20,58 @@ html
 
 a
     color: #0000ee
+
+footer
+    height: 85px
+
+/* --------------------- FOR: BOOKS PAGES -------------------- */
+
+.buyBook
+    width: 200px
+
+#buyOnBokus
+    float: right
+
+/* --------------------- FOR MENU --------------------- */
+
+#darkFilter
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgb(0, 0, 0)
+    background-color: rgba(0, 0, 0, 0.7)
+    z-index: 1
+    position: fixed
+    display: none
+
+    &.openMenu
+        display: block
+
+/* --------------------- TEXT IMG BLOCK --------------------- */
+
+.textImgDiv
+    margin-bottom: 65px
+    display: grid
+    grid-template-columns: auto auto
+    align-items: center
+
+.textImgImg
+    grid-column-start: 1
+    width: 225px
+    align-self: center
+    justify-self: center
+
+.textImgTxt
+    grid-column-start: 2
+    margin-left: 20px
+    margin-right: 10px
+    margin-top: 0px
+
+/* ------------------------- GENERAL ------------------------ */
+
+.textBlock
+    margin-bottom: 45px
 
 #logoType
     height: 70px
@@ -49,20 +104,6 @@ main
                 font-size: 48px
                 margin-bottom: 85px
 
-#darkFilter
-    left: 0
-    top: 0
-    width: 100%
-    height: 100%
-    background-color: rgb(0, 0, 0)
-    background-color: rgba(0, 0, 0, 0.7)
-    z-index: 1
-    position: fixed
-    display: none
-
-    &.openMenu
-        display: block
-
 .mainLink
     text-align: center
     font-size: 30px
@@ -77,157 +118,12 @@ main
     color: #074d8f
     width: fit-content
 
-.textBlock
-    margin-bottom: 45px
-
-.authorImgDiv
-    margin-bottom: 65px
-    display: grid
-    grid-template-columns: auto auto
-
-.authorImg
-    grid-column-start: 1
-    width: 225px
-
-    &Txt
-        grid-column-start: 2
-        margin-left: 20px
-        margin-right: 10px
-        margin-top: 0px
-
 .YTVID
-    /*
-     height 56 % of width
+    // height 56 % of width
     width: 400px
     height: 224px
 
-.bigBookImg
+.bigImg
     width: 300px
 
-.bookSmallImgDiv
-    display: flex
-    margin-bottom: 80px
-
-.bookSmallImg
-    width: 152px
-    margin-left: 5%
-
-.bookLink
-    margin-left: 40px
-    margin-top: 40px
-    font-size: 28px
-
-.buyBook
-    width: 200px
-
-#buyOnBokus
-    float: right
-
-#bookTitle
-    text-align: left
-
-footer
-    height: 85px
-
-/* -------------------------- TABLE ------------------------- */
-
-.tableHeader
-    text-align: center
-
-.table
-    width: 100%
-    border-collapse: collapse
-    table-layout: fixed
-
-th
-    font-weight: bold
-
-td,
-th
-    border: 1px solid #ccc
-    text-align: left
-    padding: 8px
-    word-wrap: break-word
-
-tr:nth-child(even)
-    background-color: #001e78
-    color: white
-
-    & > td > a
-        color: rgb(230, 230, 255)
-
-/* ---------------------- MEDIA QUERIES --------------------- */
-
-@include breakpoints.respond-medium
-    html
-        background: none
-
-    #logoType
-        height: 40px
-        padding: 0
-
-    .subheader
-        font-size: 24px
-        margin-top: -40px
-        margin-bottom: 30px
-
-    main
-        #mainSection
-            width: 80%
-            overflow: auto
-            padding-bottom: 85px
-            box-shadow: none
-
-            #content
-                font-size: 20px
-                margin-bottom: 50px
-
-                h1
-                    font-size: 28px
-                    margin-bottom: 50px
-
-    footer
-        height: 85px
-        position: absolute
-        bottom: 0
-        left: 0
-        right: 0
-        background-image: url('../img/website/ocean2.jpeg')
-        background-size: cover
-
-@include breakpoints.respond-small
-    main
-        #mainSection
-            #content
-                font-size: 18px
-
-                h1
-                    font-size: 24px
-                    margin-top: 40px
-                    margin-bottom: 50px
-
-    .authorImgDiv
-        display: initial
-
-    .authorImgTxt
-        margin-left: 0px
-        margin-top: 10px
-
-    .subheader
-        font-size: 20px
-        margin-top: -40px
-        margin-bottom: 30px
-
-@media only screen and (max-width: 600px)
-    #headerTxt
-        font-size: 28px
-
-    main #mainSection #content h1
-        font-size: 24px
-
-    .authorImg
-        width: 225px
-
-    .YTVID
-        width: 225px
-        height: 126px
+@include media.styles
