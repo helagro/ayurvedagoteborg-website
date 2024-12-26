@@ -10,4 +10,8 @@ function compileSass {
 )
 
 compileSass src/sass/main.sass dist/styles/main.css
-compileSass src/sass/pages/pt-consultation.sass dist/styles/pt-consultation.css
+
+for file in src/sass/pages/*.sass; do
+    filename=$(basename "$file" .sass)
+    compileSass "$file" "dist/styles/$filename.css"
+done
