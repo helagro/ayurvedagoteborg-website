@@ -1,6 +1,7 @@
 const fs = require('fs')
 const fse = require('fs-extra')
 const Handlebars = require('handlebars')
+const { exit } = require('process')
 const minify = require('html-minifier').minify
 
 const PARTIALS_DIR = 'components'
@@ -24,23 +25,37 @@ function registerPartials() {
 function compileTemplates(dir = TEMPLATES_DIR) {
     fs.readdirSync(dir).forEach((filename) => {
         const path = `${dir}/${filename}`
+
         if (fs.statSync(path).isDirectory())
             return compileTemplates(path)
 
-        const template = fs.readFileSync(path, 'utf8')
-        const compiledTemplate =
-            Handlebars.compile(template)
-        const compiled = compiledTemplate({})
-        const minimised = minify(compiled, {
-            collapseWhitespace: true,
-            removeComments: true,
-        })
+        if (!filename.endsWith('.hbs')) return
 
-        const newFolderPath = dir.replace(
-            TEMPLATES_DIR,
-            DESTINATION_DIR
-        )
-        writeOutputFile(newFolderPath, filename, minimised)
+        const template = fs.readFileSync(path, 'utf8')
+
+        try {
+            const compiledTemplate =
+                Handlebars.compile(template)
+            const compiled = compiledTemplate({})
+            const minimised = minify(compiled, {
+                collapseWhitespace: true,
+                removeComments: true,
+            })
+
+            const newFolderPath = dir.replace(
+                TEMPLATES_DIR,
+                DESTINATION_DIR
+            )
+            writeOutputFile(
+                newFolderPath,
+                filename,
+                minimised
+            )
+        } catch (e) {
+            console.error(`Error compiling ${filename}`)
+            console.error(e)
+            exit(1)
+        }
     })
 }
 
