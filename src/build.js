@@ -19,7 +19,11 @@ const CONTEXT = {
 
 function registerPartials() {
     fs.readdirSync(PARTIALS_DIR).forEach((filename) => {
-        const partialSource = fs.readFileSync(`${PARTIALS_DIR}/${filename}`, 'utf8')
+        const path = `${PARTIALS_DIR}/${filename}`
+
+        if (fs.statSync(path).isDirectory() || !path.endsWith('.hbs')) return
+
+        const partialSource = fs.readFileSync(path, 'utf8')
         Handlebars.registerPartial(filename.split('.')[0], partialSource)
     })
 }

@@ -1,0 +1,1 @@
+This folder is for all the templates/pages of the website. Each .hbs file will become a .html file in /dist after building.
