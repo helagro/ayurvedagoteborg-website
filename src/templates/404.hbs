@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    {{> head title="Home"}}
+    <link rel="canonical" hreflang="sv" href="{{base_address}}/404.html" />
+    <link rel="alternate" hreflang="en" href="{{base_address}}/en/404.html" />
+</head>
+
+<body>
+    <main id="main">
+        {{> header}}
+        <section id="mainSection">
+            {{> navSV langLink="/en/404.html"}}
+            <div id="content">
+                <div>
+                    <h1>404</h1>
+                    <p>Sidan kunde inte hittas.</p>
+                    <p>Det verkar som att sidan du letar efter inte finns. Kanske har den flyttats eller tagits bort.
+                    </p>
+                    <a href="/index.html">Gå till startsidan</a>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+        </footer>
+    </main>
+    <div id="darkFilter" onclick="toggleSmallScreenMenu()"></div>
+    {{> scripts}}
+</body>
+
+</html>

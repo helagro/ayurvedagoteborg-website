@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    {{> head title="Home"}}
+    <link rel="canonical" hreflang="en" href="{{base_address}}/en/404.html" />
+    <link rel="alternate" hreflang="sv" href="{{base_address}}/404.html" />
+</head>
+
+<body>
+    <main id="main">
+        {{> header}}
+        <section id="mainSection">
+            {{> navEN langLink="/404.html"}}
+            <div id="content">
+                <div>
+                    <h1>404</h1>
+                    <p>The page could not be found</p>
+                    <p>It seems that the page you are looking for does not exist. Maybe it has been moved or deleted.
+                    </p>
+                    <a href="/en/index.html">Go to the home page</a>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+        </footer>
+    </main>
+    <div id="darkFilter" onclick="toggleSmallScreenMenu()"></div>
+    {{> scripts}}
+</body>
+
+</html>

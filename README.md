@@ -18,3 +18,8 @@ cd .. && npm run build && cd dist && python3 -m http.server 8000
 
 ## To Do
 - indicate current page in navbar 
+- buy buttons for adlibris and bokus missing icons
+
+### Low Priority
+- add short book descriptions to https://www.ayurvedagoteborg.se/books.html
+- add flag next to language link
