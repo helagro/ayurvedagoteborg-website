@@ -1,6 +1,8 @@
 ## Info
 
-There is a pipeline triggered by commits to main, that will both build and deploy the website. There is a quite significant delay between pipeline finish and the new version being served.
+- There is a pipeline triggered by commits to main, that will both build and deploy the website. There is a quite significant delay between pipeline finish and the new version being served.
+
+- Preffered file naming convension for hbs and pdf files is kebab-case.
 
 ## Build
 
