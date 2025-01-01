@@ -4,7 +4,7 @@
             <a href='/en/index.html'>Start</a>
         </div>
         <div class='menuItem navLink'>
-            <a href='/en/ayurveda.html'>About us and
+            <a href='/en/about.html'>About us and
                 Ayurveda</a>
         </div>
         <div class='menuItem navLink'>
@@ -16,27 +16,15 @@
         </div>
 
         {{#if langLink}}
-            <div class='menuItem navLink'>
-                <a
-                    href='{{langLink}}'
-                    id='translateLink'
-                    onclick='disableAutoTranslation()'
-                >Swedish</a>
-            </div>
+        <div class='menuItem navLink'>
+            <a href='{{langLink}}' id='translateLink' onclick='disableAutoTranslation()'>Swedish</a>
+        </div>
         {{/if}}
     </div>
 
-    <div
-        class='smallMenu'
-        id='smallMenu'
-        onclick='toggleSmallScreenMenu()'
-    >
+    <div class='smallMenu' id='smallMenu' onclick='toggleSmallScreenMenu()'>
         <a href='/en/index.html'>
-            <img
-                id='logoType'
-                src='/img/website/Logga.png'
-                alt='Logotyp'
-            />
+            <img id='logoType' src='/img/website/Logga.png' alt='Logotyp' />
         </a>
         <div class='menuItem' id='menuIcon'>
             <div class='bar1'></div>
