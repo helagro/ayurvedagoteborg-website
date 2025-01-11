@@ -20,11 +20,12 @@
             <a href='/contact.html'>Kontakt</a>
         </div>
 
-        {{#if langLink}}
+
         <div class='menuItem navLink'>
-            <a href='{{langLink}}' id='translateLink' onclick='disableAutoTranslation()'>English</a>
+            <a href='{{langLink}}' id='translateLink' onclick='disableAutoTranslation()' {{#unless langLink}}
+                style="visibility: hidden;" {{/unless}}>English</a>
         </div>
-        {{/if}}
+
     </div>
 
     <div class='smallMenu' id='smallMenu' onclick='toggleSmallScreenMenu()'>
