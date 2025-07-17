@@ -1,8 +1,4 @@
-## Info
-
-- There is a pipeline triggered by commits to main, that will both build and deploy the website. There is a quite significant delay between pipeline finish and the new version being served.
-
-- Preffered file naming convension for hbs and pdf files is kebab-case.
+# Ayurvedagoteborg Website
 
 ## Project Structure
 
@@ -19,11 +15,11 @@
 │   │   ├── js/                 # JavaScript for language toggle, responsiveness, etc.
 │   │   └── pdf/                # Downloadable PDF resources
 │   ├── components/             # Reusable layout components (partials)
-│   │   ├── head.hbs
-│   │   ├── header.hbs
-│   │   ├── navEN.hbs
-│   │   ├── navSV.hbs
-│   │   └── scripts.hbs
+│   │   ├── head.hbs            # Head section for the HTML documents
+│   │   ├── header.hbs         # Header section of the pages
+│   │   ├── navEN.hbs           # Navigation bar in English
+│   │   ├── navSV.hbs           # Navigation bar in Swedish
+│   │   └── scripts.hbs         # Partial for including scripts used across pages
 │
 │   ├── sass/                   # Sass stylesheets (similar to CSS)
 │   │   ├── _*.sass             # Partial Sass files (variables, mixins, etc.)
@@ -37,20 +33,42 @@
 │       └── README.md           # Template documentation
 ```
 
-## Build
+## Development
 
-### Build with:
+### Project Setup
+
+```bash
+git clone git@github.com:helagro/ayurvedagoteborg-website.git
+cd ayurvedagoteborg-website
+npm install
+```
+
+### Build
+
+#### Build with:
 
 ```
 npm run build
 ```
 
-### My build & run command:
+#### My build & run command:
 
 ```bash
 cd dist
 cd .. && npm run build && cd dist && python3 -m http.server 8000
 ```
+
+### Conventions
+
+## Naming Conventions
+
+- Handlebars and PDF files: `kebab-case` (e.g., `my-file.hbs`, `course-material.pdf`)
+- Image files: Use descriptive names in English or Swedish where relevant.
+- Avoid spaces in file names; use `-` instead.
+
+### Deployment
+
+There is a pipeline triggered by commits to main, that will both build and deploy the website. There is a quite significant delay between pipeline finish and the new version being served.
 
 ## To Do
 - buy buttons for adlibris and bokus are missing icons
