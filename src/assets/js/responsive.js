@@ -1,7 +1,6 @@
 'use strict'
 ;(() => {
-    if (getScreenWidth() < 1024 && calendarExists())
-        redesignCalendar()
+    if (getScreenWidth() < 1200 && calendarExists()) redesignCalendar()
 })()
 
 /* --------------------- RESPONSIVENESS --------------------- */
@@ -15,8 +14,7 @@ function getScreenWidth() {
 }
 
 function toggleSmallScreenMenu() {
-    const smallMenuBar =
-        document.getElementById('smallMenu')
+    const smallMenuBar = document.getElementById('smallMenu')
     const navLinks = document.getElementById('navLinks')
     const darkMenu = document.getElementById('darkFilter')
     const menuIcon = document.getElementById('menuIcon')
@@ -34,10 +32,7 @@ function calendarExists() {
 }
 
 function redesignCalendar() {
-    const calendarBody =
-        document.getElementById(
-            'calendar'
-        ).firstElementChild
+    const calendarBody = document.getElementById('calendar').firstElementChild
 
     const tableHeadings = calendarBody.children[0].children
 
@@ -47,9 +42,7 @@ function redesignCalendar() {
     // adds labels for the table data, see https://css-tricks.com/responsive-data-tables/
     for (let i = 0; i < tableHeadings.length; i++) {
         style.innerHTML += `
-      td:nth-of-type(${i + 1}):before { content: "${
-            tableHeadings[i].innerHTML
-        }: "; }
+      td:nth-of-type(${i + 1}):before { content: "${tableHeadings[i].innerHTML}: "; }
     `
     }
 

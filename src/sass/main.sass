@@ -53,8 +53,9 @@ footer
 .textImgDiv
     margin-bottom: 65px
     display: grid
-    grid-template-columns: auto auto
+    grid-template-columns: max-content auto
     align-items: center
+    width: 100%
 
 .textImgImg
     grid-column-start: 1
@@ -67,6 +68,27 @@ footer
     margin-left: 20px
     margin-right: 10px
     margin-top: 0px
+
+    p
+        margin-top: 12px
+        margin-bottom: 12px
+
+.textRow
+    display: flex
+    justify-content: space-between
+    margin: 4px 0
+    width: 100%
+
+    .text
+        flex: 4
+
+    .time
+        flex: 1
+        text-align: center
+
+    .type
+        flex: 1
+        text-align: right
 
 /* ------------------------- GENERAL ------------------------ */
 
