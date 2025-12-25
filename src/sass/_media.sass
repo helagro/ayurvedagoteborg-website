@@ -51,11 +51,19 @@
                         margin-bottom: 50px
 
         .textImgDiv
-            display: initial
+            grid-template-columns: auto
 
-        .textImgTxt
-            margin-left: 0px
-            margin-top: 10px
+            img
+                margin: 0 auto
+
+            .textImgImg
+                width: 70%
+                background-color: unset !important
+
+            .textImgTxt
+                margin-left: 0px
+                margin-top: 10px
+                grid-column-start: 1
 
         .subheader
             font-size: 20px

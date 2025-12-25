@@ -54,14 +54,19 @@ footer
     margin-bottom: 65px
     display: grid
     grid-template-columns: max-content auto
+    row-gap: 10px
     align-items: center
     width: 100%
 
 .textImgImg
     grid-column-start: 1
-    width: 225px
+    display: flex
+    min-width: fit-content
     align-self: center
     justify-self: center
+    border-radius: 15px
+    background-color: #eeee
+    padding: 12px
 
 .textImgTxt
     grid-column-start: 2
@@ -104,6 +109,7 @@ main
     position: relative
 
     #mainSection
+        background-color: #ffffffee
         display: block
         margin-left: auto
         margin-right: auto
@@ -118,8 +124,8 @@ main
             padding: 1%
             padding-left: 3%
             padding-right: 3%
-            background-color: white
             overflow: auto
+            backdrop-filter: blur(10px)
 
             & h1
                 text-align: center
@@ -147,5 +153,6 @@ main
 
 .bigImg
     width: 300px
+    border-radius: 15px
 
 @include media.styles
