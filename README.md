@@ -73,12 +73,14 @@ There is a pipeline triggered by commits to main, that will both build and deplo
 ## To Do
 - buy buttons for adlibris and bokus are missing icons
 
-4. Mindre stark blå färg
-5. Bilderna på böckerna högre upp
-6. Dosha-bild på Om ayurveda sidan
-7. Embedda Stefans blogg och Ayurveda Göteborgs facebook
-8. Gör länkar till adlibris och bokus till knappar el dyl.
-3. Eventuellt försöka göra dem mer lika i storlek
+- Mindre stark blå färg
+- Bilderna på böckerna högre upp
+- Texten högre upp brevid bilder
+- Bättre web-scraping skydd på kontakt detaljer
+- Dosha-bild på Om ayurveda sidan
+- Embedda Stefans blogg och Ayurveda Göteborgs facebook
+- Gör länkar till adlibris och bokus till knappar el dyl.
+- Eventuellt försöka göra dem mer lika i storlek
 
 
 ### Low Priority
